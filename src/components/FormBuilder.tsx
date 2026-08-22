@@ -37,10 +37,14 @@ export default function FormBuilder({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
+  // WhatsApp number
+  const whatsappNumber = '918160315863';
+
   const validate = () => {
     const next: Record<string, string> = {};
 
     fields.forEach((f) => {
+      // Required field validation
       if (
         f.required &&
         f.type !== 'file' &&
@@ -49,18 +53,21 @@ export default function FormBuilder({
         next[f.name] = 'This field is required.';
       }
 
+      // Email validation
       if (f.type === 'email' && values[f.name]) {
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values[f.name])) {
           next[f.name] = 'Please enter a valid email.';
         }
       }
 
+      // Phone validation
       if (f.type === 'tel' && values[f.name]) {
         if (!/^[+\d][\d\s-]{6,}$/.test(values[f.name])) {
           next[f.name] = 'Please enter a valid phone number.';
         }
       }
 
+      // File validation
       if (f.type === 'file' && f.required && !file) {
         next[f.name] = 'Please select an image.';
       }
@@ -72,11 +79,16 @@ export default function FormBuilder({
   };
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
     field: FormField
   ) => {
+    // File input
     if (field.type === 'file') {
-      const selectedFile = (e.target as HTMLInputElement).files?.[0];
+      const selectedFile = (
+        e.target as HTMLInputElement
+      ).files?.[0];
 
       if (selectedFile) {
         if (!selectedFile.type.startsWith('image/')) {
@@ -84,6 +96,7 @@ export default function FormBuilder({
             ...prev,
             [field.name]: 'Please select a valid image.',
           }));
+
           return;
         }
 
@@ -99,11 +112,13 @@ export default function FormBuilder({
       return;
     }
 
-    setValues((v) => ({
-      ...v,
+    // Normal input
+    setValues((prev) => ({
+      ...prev,
       [field.name]: e.target.value,
     }));
 
+    // Remove error after user starts typing
     setErrors((prev) => {
       const updated = { ...prev };
       delete updated[field.name];
@@ -114,39 +129,53 @@ export default function FormBuilder({
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    if (!validate()) return;
+    // Validate form
+    if (!validate()) {
+      return;
+    }
 
-    const whatsappNumber = '917284948918';
+    /*
+      Create dynamic WhatsApp message.
+      This works for ALL forms using FormBuilder.
+    */
+
+    const formLines = fields
+      .filter((field) => field.type !== 'file')
+      .map((field) => {
+        const value = values[field.name] || '';
+
+        if (!value) return '';
+
+        return `${field.label}: ${value}`;
+      })
+      .filter(Boolean)
+      .join('\n');
 
     const message = `
 Hello Nakshatra Elite Diamond Jewels,
 
-I would like to discuss a bespoke jewellery commission.
+I have submitted an enquiry through your website.
 
-Name: ${values.name || ''}
-Phone: ${values.phone || ''}
-Email: ${values.email || ''}
-Jewellery Type: ${values.jewelleryType || ''}
-Budget: ${values.budget || ''}
+${formLines}
 
-Message:
-${values.message || ''}
-
-Reference Image:
-${file ? file.name : 'No image uploaded'}
+${file ? `Reference Image: ${file.name}` : ''}
 
 Thank you.
     `.trim();
 
+    // WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       message
     )}`;
 
-    window.open(whatsappUrl, '_blank');
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
+    // Show success message
     setSubmitted(true);
   };
 
+  // Success screen
   if (submitted) {
     return (
       <motion.div
@@ -166,6 +195,10 @@ Thank you.
 
         <p className="max-w-sm font-body text-sm leading-relaxed text-charcoal-600">
           {successMessage}
+        </p>
+
+        <p className="text-xs text-charcoal-500">
+          WhatsApp has been opened with your enquiry details.
         </p>
       </motion.div>
     );
@@ -196,6 +229,7 @@ Thank you.
               )}
             </label>
 
+            {/* Select */}
             {f.type === 'select' ? (
               <select
                 id={f.name}
@@ -207,13 +241,14 @@ Thank you.
               >
                 <option value="">Select...</option>
 
-                {f.options?.map((o) => (
-                  <option key={o} value={o}>
-                    {o}
+                {f.options?.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
                   </option>
                 ))}
               </select>
             ) : f.type === 'textarea' ? (
+              /* Textarea */
               <textarea
                 id={f.name}
                 name={f.name}
@@ -225,6 +260,7 @@ Thank you.
                 className="input-lux mt-2 resize-none"
               />
             ) : f.type === 'file' ? (
+              /* File */
               <input
                 id={f.name}
                 name={f.name}
@@ -234,6 +270,7 @@ Thank you.
                 className="input-lux mt-2"
               />
             ) : (
+              /* Text / Phone / Email / Date / Time */
               <input
                 id={f.name}
                 name={f.name}
@@ -246,6 +283,7 @@ Thank you.
               />
             )}
 
+            {/* Error */}
             {errors[f.name] && (
               <p className="mt-1 font-body text-xs text-red-700">
                 {errors[f.name]}
@@ -255,6 +293,7 @@ Thank you.
         );
       })}
 
+      {/* Submit */}
       <div className="sm:col-span-2">
         <button
           type="submit"
