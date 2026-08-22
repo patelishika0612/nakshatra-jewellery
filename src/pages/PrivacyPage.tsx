@@ -16,7 +16,7 @@ export default function PrivacyPage() {
             {site.brandFull} respects your privacy. This policy describes how we
             collect, use and protect the information you share with us.
           </p>
-          <h2 className="font-heading text-2xl text-charcoal-900">Information We Collect</h2>
+          <h2 className="font-heading text-2xl text-charcoal-900"></h2>
           <p>
             We collect information you provide directly — such as your name,
             contact details and enquiry content — when you use our forms,
@@ -31,6 +31,9 @@ export default function PrivacyPage() {
           <h2 className="font-heading text-2xl text-charcoal-900">Your Choices</h2>
           <p>
             You may request access to, correction of, or deletion of your
+            personal information at any time by contacting us.
+<br/>
+             You may request access to, correction of, or deletion of your
             personal information at any time by contacting us.
           </p>
           <p className="text-charcoal-500">
