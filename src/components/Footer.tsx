@@ -98,7 +98,7 @@ export default function Footer() {
           </h3>
           <ul className="mt-5 space-y-3 font-body text-sm text-charcoal-300">
             <li><Link to="/privacy" className="link-underline hover:text-ivory">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="link-underline hover:text-ivory">Terms</Link></li>
+            <li><Link to="/terms" className="link-underline hover:text-ivory">Terms & Conditions</Link></li>
             <li>
               <a
                 href={site.instagramUrl}
