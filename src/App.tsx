@@ -26,6 +26,7 @@ import ContactPage from '@/pages/ContactPage';
 import AppointmentPage from '@/pages/AppointmentPage';
 import PrivacyPage from '@/pages/PrivacyPage';
 import TermsPage from '@/pages/TermsPage';
+import ReturnPage from '@/pages/ReturnPage';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -51,6 +52,7 @@ function AnimatedRoutes() {
           <Route path="/appointment" element={<AppointmentPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/returns" element={<ReturnPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
       </motion.main>
