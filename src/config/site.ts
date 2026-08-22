@@ -23,12 +23,12 @@ export const site = {
 
 export const navLinks = [
   { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
   { label: 'Collections', to: '/collections' },
   { label: 'Gold', to: '/gold' },
   { label: 'Diamonds', to: '/diamonds' },
   { label: 'Silver', to: '/silver' },
   { label: 'Bespoke', to: '/bespoke' },
-  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ];
 
