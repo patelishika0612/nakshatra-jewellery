@@ -13,10 +13,9 @@ export const site = {
   instagram: '@nakshatraelite_diamond_jewels',
   instagramUrl: 'https://instagram.com/nakshatraelite_diamond_jewels',
 whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '917284948918',  // Editable placeholders — replace with real contact details.
-  email: 'hello@nakshatraelite.com', // PLACEHOLDER
-  phone: '+91 00000 00000', // PLACEHOLDER
-  addressLine: 'Showcase Address, City — 000000', // PLACEHOLDER
-  hours: 'Monday – Saturday · 11 AM – 7 PM', // PLACEHOLDER
+  email: 'nakshatraelitesurat@gmail.com', // PLACEHOLDER
+  phone: '+917284948918', // PLACEHOLDER
+  addressLine: 'Surat, Gujarat 395004', // PLACEHOLDER
   tagline: 'Timeless Brilliance. Crafted for You.',
 };
 

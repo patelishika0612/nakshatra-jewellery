@@ -28,7 +28,7 @@ export default function PageHeader({
         </>
       )}
       {!image && <div className="absolute inset-0 bg-charcoal-900" />}
-      <div className="container-lux-wide relative z-10 pb-14 pt-20 text-ivory lg:pb-20">
+      <div className="container-lux-wide relative z-10 pb-14 pt-28 text-ivory lg:pb-20">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

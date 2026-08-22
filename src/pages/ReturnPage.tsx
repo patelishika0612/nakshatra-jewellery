@@ -43,7 +43,7 @@ export default function ReturnPage() {
           </h2>
 
           <p>
-            <strong>We do not provide returns on delivered jewellery products.</strong>
+            <strong>Returns are generally not accepted for change of mind or personal preference. However, customers will retain any mandatory rights and remedies available under applicable law.</strong>
           </p>
 
           <p>
@@ -106,9 +106,7 @@ export default function ReturnPage() {
           </h2>
 
           <p>
-            Customers must notify {site.brandFull}{' '}
-            <strong>within 24 hours of receiving the delivery</strong> if they
-            receive a wrong, damaged, or defective product.
+           Failure to provide an unboxing video may affect our ability to verify the condition of the product at delivery, but claims will be reviewed based on the available evidence and applicable law.
           </p>
 
           <p>
@@ -128,9 +126,21 @@ export default function ReturnPage() {
           <p>To submit a claim, contact us through:</p>
 
           <p>
-            <strong>Email:</strong> [YOUR EMAIL ADDRESS]
-            <br />
-            <strong>Phone/WhatsApp:</strong> [YOUR PHONE NUMBER]
+            <strong>Email:</strong>{" "}
+  <a
+    href="mailto:nakshatraelitesurat@gmail.com"
+    className="text-charcoal-700 hover:underline"
+  >
+    nakshatraelitesurat@gmail.com
+  </a>
+  <br />
+ <strong>Phone:</strong>{" "}
+  <a
+    href="tel:+917284948918"
+    className="text-charcoal-700 hover:underline"
+  >
+    +91 72849 48918
+  </a> 
           </p>
 
           <p>Please provide:</p>
