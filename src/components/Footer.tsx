@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Instagram, MessageCircle, ArrowRight } from 'lucide-react';
 import { site } from '@/config/site';
 import { whatsappLink } from '@/utils/whatsapp';
+import logo1 from '@/images/logo1.png';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -57,12 +58,13 @@ export default function Footer() {
       {/* Links */}
       <div className="container-lux grid grid-cols-2 gap-10 py-16 md:grid-cols-4 lg:py-20">
         <div className="col-span-2 md:col-span-1">
-          <p className="font-heading text-2xl tracking-[0.18em] text-ivory">
-            {site.brand.toUpperCase()}
-          </p>
-          <p className="mt-1 font-body text-[0.55rem] uppercase tracking-[0.32em] text-gold-500">
-            {site.brandSub}
-          </p>
+       <div className="flex flex-col items-start">
+  <img
+    src={logo1}
+    alt="Nakshatra Elite Diamond Jewels"
+    className="h-24 w-auto object-contain sm:h-28 lg:h-40"
+  />
+</div>
           <p className="mt-6 max-w-xs font-body text-sm leading-relaxed text-charcoal-300">
             Gold, diamond and silver jewellery, designed and crafted with
             precision, passion and timeless elegance.

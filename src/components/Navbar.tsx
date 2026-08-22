@@ -6,7 +6,7 @@ import { navLinks, site } from '@/config/site';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { useSearch } from '@/context/SearchContext';
-
+import logo from '@/images/logo1.png';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -47,23 +47,17 @@ export default function Navbar() {
       >
         <div className="container-lux-wide flex items-center justify-between py-4 lg:py-5">
           {/* Logo */}
-          <Link to="/" className="flex flex-col leading-none" aria-label={site.brandFull}>
-            <span
-              className={`font-heading text-2xl tracking-[0.18em] transition-colors duration-500 lg:text-[1.7rem] ${
-                transparent ? 'text-ivory' : 'text-charcoal-900'
-              }`}
-            >
-              {site.brand.toUpperCase()}
-            </span>
-            <span
-              className={`mt-0.5 font-body text-[0.55rem] uppercase tracking-[0.32em] transition-colors duration-500 ${
-                transparent ? 'text-ivory/80' : 'text-gold-700'
-              }`}
-            >
-              {site.brandSub}
-            </span>
-          </Link>
-
+        <Link
+  to="/"
+  className="flex items-center"
+  aria-label="Nakshatra Elite Diamond Jewels"
+>
+ <img 
+  src={logo} 
+  alt="Nakshatra Elite Diamond Jewels" 
+  className="h-24 w-auto object-contain sm:h-28 lg:h-36" 
+/>
+</Link>
           {/* Desktop nav */}
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
             {navLinks.map((link) => (

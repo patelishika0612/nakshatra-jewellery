@@ -94,7 +94,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <WhyNakshatra />
+      {/* <WhyNakshatra /> */}
 
       <section className="bg-ivory py-20 text-center lg:py-24">
         <Reveal>

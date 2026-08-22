@@ -22,7 +22,7 @@ export const site = {
 };
 
 export const navLinks = [
-  { label: 'Homeeee', to: '/' },
+  { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Collections', to: '/collections' },
   { label: 'Gold', to: '/gold' },
